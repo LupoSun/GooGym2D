@@ -1,0 +1,329 @@
+{
+  "replay": "replay.json",
+  "style": "inspection_formation",
+  "rows": [
+    {
+      "round": "Round 1",
+      "alpha": 1.0,
+      "cells": [
+        {
+          "file": "grid/round_001/w8_00.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_001/w8_01.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_001/w8_02.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_001/w8_03.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_001/w8_04.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_001/w8_05.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_001/w10_00.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_001/w10_01.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_001/w10_02.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_001/w10_03.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_001/w10_04.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_001/w10_05.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_001/w12_00.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_001/w12_01.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_001/w12_02.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_001/w12_03.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_001/w12_04.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_001/w12_05.png",
+          "width": 12.0
+        }
+      ]
+    },
+    {
+      "round": "Round 2",
+      "alpha": 0.72,
+      "cells": [
+        {
+          "file": "grid/round_002/w8_00.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_002/w8_01.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_002/w8_02.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_002/w8_03.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_002/w8_04.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_002/w8_05.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_002/w10_00.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_002/w10_01.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_002/w10_02.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_002/w10_03.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_002/w10_04.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_002/w10_05.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_002/w12_00.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_002/w12_01.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_002/w12_02.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_002/w12_03.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_002/w12_04.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_002/w12_05.png",
+          "width": 12.0
+        }
+      ]
+    },
+    {
+      "round": "Round 3",
+      "alpha": 0.48,
+      "cells": [
+        {
+          "file": "grid/round_003/w8_00.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_003/w8_01.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_003/w8_02.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_003/w8_03.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_003/w8_04.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_003/w8_05.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_003/w10_00.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_003/w10_01.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_003/w10_02.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_003/w10_03.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_003/w10_04.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_003/w10_05.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_003/w12_00.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_003/w12_01.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_003/w12_02.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_003/w12_03.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_003/w12_04.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_003/w12_05.png",
+          "width": 12.0
+        }
+      ]
+    },
+    {
+      "round": "Round 4",
+      "alpha": 0.28,
+      "cells": [
+        {
+          "file": "grid/round_004/w8_00.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_004/w8_01.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_004/w8_02.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_004/w8_03.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_004/w8_04.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_004/w8_05.png",
+          "width": 8.0
+        },
+        {
+          "file": "grid/round_004/w10_00.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_004/w10_01.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_004/w10_02.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_004/w10_03.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_004/w10_04.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_004/w10_05.png",
+          "width": 10.0
+        },
+        {
+          "file": "grid/round_004/w12_00.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_004/w12_01.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_004/w12_02.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_004/w12_03.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_004/w12_04.png",
+          "width": 12.0
+        },
+        {
+          "file": "grid/round_004/w12_05.png",
+          "width": 12.0
+        }
+      ]
+    }
+  ],
+  "width_backgrounds": {
+    "8": "#fff0f6",
+    "10": "#e3fafc",
+    "12": "#fff9db"
+  },
+  "widths": [
+    8,
+    10,
+    12
+  ],
+  "source_store": "experiments_vB/cache/ACADIA_8_10_12_WEB_GOLDEN/dagger_round_001.zarr"
+}

@@ -1,0 +1,1756 @@
+/* GooGym2D — layout + components
+ * Tokens live in tokens.css. GSAP animates on top of this static baseline.
+ */
+
+@import url("tokens.css");
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: var(--font-geist);
+  font-weight: var(--font-weight-medium);
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--color-luminous-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Top nav ---------- */
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) clamp(var(--spacing-24), 5vw, var(--spacing-64));
+  /* Soft fade: opaque-ish white at the top dissolving to transparent downward. */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.site-nav__brand {
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading-lg);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-24);
+}
+
+.site-nav__link {
+  position: relative;
+  color: var(--ink-muted);
+  font-size: var(--text-heading-sm);
+  transition: color 0.2s ease;
+}
+
+.site-nav__link:hover {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* Scroll-spy: emphasize the chapter currently in view. */
+.site-nav__link.is-active {
+  color: var(--ink);
+}
+.site-nav__link.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+@media (max-width: 720px) {
+  .site-nav__links .site-nav__link {
+    display: none;
+  }
+}
+
+/* ---------- Layout primitives ---------- */
+.section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-block: clamp(var(--spacing-88), 12vh, var(--spacing-160));
+  overflow: clip;
+}
+
+/* Keep anchor jumps clear of the fixed top nav. */
+section[id],
+.section--collection,
+.section--curation,
+.section--training,
+.section--correction,
+.section--codesign,
+.section--results {
+  scroll-margin-top: 84px;
+}
+
+/* Keyboard focus — visible ring on interactive elements. */
+:focus-visible {
+  outline: 2px solid var(--color-electric-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+a:focus-visible,
+button:focus-visible,
+.info-card--link:focus-visible,
+.paper-cite__summary:focus-visible {
+  outline: 2px solid var(--color-electric-blue);
+  outline-offset: 3px;
+}
+
+.section--full {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: clamp(var(--spacing-24), 5vw, var(--spacing-64));
+}
+
+/* Background rhythm */
+.section--canvas { background: var(--surface-canvas-white-base); }
+.section--skywash { background: var(--surface-sky-wash-canvas); }
+
+/* Per-section wash (set --wash on the element to use) */
+.section[data-wash] { background: var(--section-wash, transparent); }
+.section--hero { background: var(--gradient-whisper-fade-blue); }
+.section--method { background: var(--color-mint-glaze); }
+.section--environment { background: var(--wash-environment); }
+
+/* ---------- Typography ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0 0 var(--spacing-24);
+  padding: 6px 16px;
+  border-radius: var(--radius-badges);
+  background: var(--surface-arctic-mist-card);
+  box-shadow: inset 0 0 0 1px rgba(83, 88, 98, 0.12);
+  font-size: var(--text-body-lg);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--section-accent, var(--color-electric-blue));
+}
+
+.eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.headline {
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  line-height: var(--leading-display-lg);
+  color: var(--ink);
+  margin: 0 0 var(--spacing-24);
+  text-wrap: balance;
+}
+
+.headline--xl {
+  font-size: clamp(var(--text-display-lg), 8vw, var(--text-display-xl));
+  line-height: var(--leading-display-xl);
+}
+
+.headline--lg {
+  font-size: clamp(var(--text-display), 5vw, var(--text-display-lg));
+}
+
+.lede {
+  font-size: clamp(var(--text-heading-sm), 2.2vw, var(--text-heading-lg));
+  line-height: var(--leading-heading-lg);
+  color: var(--ink-muted);
+  max-width: var(--measure);
+  margin: 0 0 var(--spacing-32);
+}
+
+.body {
+  font-size: var(--text-heading-sm);
+  line-height: 1.6;
+  color: var(--ink-muted);
+  max-width: 52ch;
+  margin: 0;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: 12px 32px;
+  border: none;
+  border-radius: var(--radius-buttons);
+  background: var(--cta-bg);
+  color: var(--cta-fg);
+  font-family: var(--font-geist);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading-sm);
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  text-decoration: none;
+}
+
+.btn-primary--sm {
+  padding: 8px 16px;
+  border-radius: var(--radius-icons);
+  font-size: var(--text-body-lg);
+}
+
+/* ---------- Figure ---------- */
+.figure {
+  margin: 0;
+  border-radius: var(--radius-cards);
+  background: var(--surface-arctic-mist-card);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.figure__media {
+  display: block;
+  width: 100%;
+}
+
+/* Placeholder shown when an asset is missing */
+.figure__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  padding: var(--card-padding);
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(83, 88, 98, 0.04),
+      rgba(83, 88, 98, 0.04) 12px,
+      transparent 12px,
+      transparent 24px
+    );
+  color: var(--ink-faint);
+  font-size: var(--text-heading-sm);
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.figure__caption {
+  padding: var(--spacing-16) var(--spacing-24);
+  font-size: var(--text-body-lg);
+  color: var(--ink-faint);
+}
+
+/* ---------- Stat ---------- */
+.stat {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.stat__value {
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: clamp(var(--text-display), 6vw, var(--text-display-xl));
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--section-accent, var(--color-electric-blue));
+}
+
+.stat__label {
+  font-size: var(--text-heading-sm);
+  color: var(--ink-muted);
+  max-width: 28ch;
+}
+
+/* ---------- Section compositions ---------- */
+/* Ambient Open Color flow-field behind the hero copy. */
+.hero__field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 60rem;
+}
+
+/* Keyword hashtags under the hero lede (paper keywords). */
+.hero__tags {
+  margin: 0 0 var(--spacing-32);
+  font-family: var(--font-geist);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading-sm);
+  letter-spacing: 0.005em;
+  color: var(--accent-hero);
+}
+
+.split {
+  display: grid;
+  gap: clamp(var(--spacing-40), 5vw, var(--spacing-80));
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .split--method {
+    grid-template-columns: 1fr 1.15fr;
+  }
+}
+
+/* ---------- Environment (copy on top, 3 animated feature cards) ---------- */
+.environment__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(var(--spacing-32), 5vh, var(--spacing-56));
+}
+
+.environment-head {
+  max-width: 46rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.environment-head__sub {
+  margin: var(--spacing-16) auto 0;
+}
+
+.environment-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(var(--spacing-24), 3vw, var(--spacing-40));
+}
+@media (min-width: 760px) {
+  .environment-cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+.env-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.env-card__stage {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-cards);
+  background: var(--surface-canvas-white-base);
+  border: 1px solid rgba(44, 44, 44, 0.06);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.env-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.env-card__cap {
+  text-align: center;
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading-sm);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* ---------- Framework (pinned: copy left, flowchart flies on the right) ---------- */
+.section--framework {
+  position: relative;
+  background: var(--wash-framework);
+}
+
+.framework-stage {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* clips the flowchart as it flies in/out */
+}
+
+.framework-stage__inner {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(var(--spacing-32), 5vw, var(--spacing-64));
+  align-items: center;
+}
+@media (min-width: 900px) {
+  .framework-stage__inner { grid-template-columns: 0.85fr 1.15fr; }
+}
+
+.framework-copy { max-width: 34rem; }
+.framework-head__sub { margin-top: var(--spacing-16); }
+
+.framework-viewport { position: relative; }
+.framework-flow {
+  display: block;
+  width: 100%;
+  height: auto;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 760px) {
+  .framework-copy { max-width: none; }
+}
+
+/* ---------- Collection (pinned scroll beat) ---------- */
+.section--collection {
+  position: relative;
+  background: var(--wash-teaching-collection);
+}
+
+/* The stage is what GSAP pins; it fills the viewport while the section scrolls. */
+.collection-stage {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.collection-stage__inner {
+  position: relative;
+  width: 100%;
+}
+
+/* Explanatory copy sits on the left during the build phase. */
+.collection-head {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  max-width: 28rem;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.collection-head__sub {
+  margin-top: var(--spacing-16);
+}
+
+/* Stage area that holds the GUI + mosaic + arrows */
+.collection-canvas {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+}
+
+/* OS window chrome (matches IASS plot_gui_screenshots) */
+.os-window {
+  position: relative;
+  z-index: 2;
+  width: min(46vmin, 460px);
+  background: var(--surface-canvas-white-base);
+  border: 1px solid #cccccc;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.os-window__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 12px;
+  background: #ededed;
+  border-bottom: 1px solid #cccccc;
+}
+
+.os-dot {
+  position: relative;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.os-dot--close { background: #ff5f57; }
+.os-dot--min   { background: #febc2e; }
+.os-dot--max   { background: #28c840; }
+
+/* Centered title regardless of the traffic-light dots on the left. */
+.os-window__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  color: var(--ink-muted);
+  letter-spacing: -0.01em;
+  pointer-events: none;
+}
+
+.os-window__body {
+  line-height: 0;
+  background: var(--bridge-sky);
+}
+
+#collection-gui-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+/* Mosaic cloud */
+.mosaic {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mosaic__card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(90px, 13vmin, 150px);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-icons);
+  background: var(--surface-arctic-mist-card);
+  /* Shadow alpha driven by JS (--shadowA): 0 while stacked at center, 1 scattered. */
+  box-shadow: 0 14px 20px 4px rgba(4, 69, 144, calc(0.08 * var(--shadowA, 0)));
+  overflow: hidden;
+  /* JS sets --tx/--ty/--rot/--sc for the scattered final position */
+  transform: translate(-50%, -50%) translate(var(--tx, 0), var(--ty, 0)) rotate(var(--rot, 0deg)) scale(var(--sc, 1));
+  will-change: transform, opacity;
+}
+
+.mosaic__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Static (no-pin) fallback: simple responsive grid */
+.mosaic--static {
+  position: relative;
+  inset: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-40);
+}
+.mosaic--static .mosaic__card {
+  position: relative;
+  top: auto;
+  left: auto;
+  width: auto;
+  transform: none;
+}
+
+/* Stats panel — revealed in the center as the cloud flies out */
+.stats-panel {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.stats-panel__title {
+  margin: 0 0 var(--spacing-8);
+  font-size: var(--text-body-lg);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.stats-panel__num {
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: clamp(var(--text-display), 6vw, var(--text-display-xl));
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent-teaching-collection);
+}
+
+.stats-panel__widths {
+  display: flex;
+  gap: var(--spacing-24);
+  justify-content: center;
+  margin: var(--spacing-16) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.stats-panel__widths li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stats-panel__w-num {
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading-lg);
+  color: var(--ink);
+}
+.stats-panel__w-cap {
+  font-size: var(--text-body-lg);
+  color: var(--ink-muted);
+}
+
+@media (max-width: 760px) {
+  .collection-head {
+    position: static;
+    transform: none;
+    opacity: 1;
+    max-width: none;
+  }
+  .stats-panel {
+    position: static;
+    transform: none;
+    text-align: left;
+    opacity: 1;
+    margin-top: var(--spacing-40);
+  }
+  .stats-panel__widths { justify-content: flex-start; }
+  .stats-panel__widths li { align-items: flex-start; }
+}
+
+/* ---------- Curation (pinned scroll beat) ---------- */
+.section--curation {
+  position: relative;
+  background: var(--wash-teaching-curation);
+}
+
+.curation-stage {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.curation-stage__inner {
+  position: relative;
+  width: 100%;
+  /* Children are absolutely positioned layers; stretch to the full stage
+     height so the formation grid has a real box to lay out / clip against. */
+  align-self: stretch;
+}
+
+.curation-head {
+  position: absolute;
+  left: 0;
+  top: 12%;
+  z-index: 4;
+  max-width: 30rem;
+  pointer-events: none;
+}
+
+.curation-head__sub {
+  margin-top: var(--spacing-16);
+}
+
+/* Gallery GUI window (landscape) */
+.curation-canvas {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 3;
+}
+
+.os-window--wide {
+  width: min(72vw, 860px);
+}
+
+.os-window__body--dark {
+  background: #0d0f14;
+}
+
+.os-window--wide .os-window__body img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Formation grid that pans horizontally — full-bleed (edge to edge) even though
+   it lives inside the centered .container stage. */
+.formation {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.formation__track {
+  --cell: clamp(96px, 12vmin, 150px);
+  display: grid;
+  grid-template-rows: repeat(var(--rows, 4), var(--cell));
+  grid-auto-flow: column;
+  grid-auto-columns: var(--cell);
+  gap: 14px;
+  will-change: transform;
+}
+
+.formation__cell {
+  width: var(--cell);
+  height: var(--cell);
+  border-radius: var(--radius-icons);
+  background: var(--surface-arctic-mist-card);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.45s ease;
+}
+
+.formation__cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Selected demos lift up and glow light pink (triggered staggered by JS) */
+.formation__cell.is-lifted {
+  transform: translateY(-16px) scale(1.06);
+  box-shadow:
+    0 0 0 2px rgba(240, 101, 149, 0.55),
+    0 14px 34px rgba(240, 101, 149, 0.4);
+}
+
+@media (max-width: 760px) {
+  .curation-head {
+    position: static;
+    max-width: none;
+  }
+}
+
+/* ---------- Training (pinned scroll beat) ---------- */
+.section--training {
+  position: relative;
+  background: var(--wash-teaching-training);
+}
+
+.training-stage {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.training-stage__inner {
+  position: relative;
+  width: 100%;
+  align-self: stretch;
+}
+
+.training-head {
+  position: absolute;
+  left: 0;
+  top: 12%;
+  z-index: 4;
+  max-width: 28rem;
+  pointer-events: none;
+}
+
+.training-head__sub {
+  margin-top: var(--spacing-16);
+}
+
+/* noise → vector field → action chunks, all drawn on one canvas */
+.training-diagram {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+#training-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.training-cap {
+  position: absolute;
+  z-index: 3;
+  font-size: var(--text-body-sm, 0.8rem);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--ink-muted);
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Centered under each component (anchors mirror training.js layout):
+   noise strip center ≈ 44%, vector-field band center ≈ 68%, truss ≈ 92%. */
+.training-cap--noise  { left: 44%; bottom: 12%; transform: translateX(-50%); text-align: center; }
+.training-cap--field  { left: 68%; bottom: 12%; transform: translateX(-50%); text-align: center; }
+.training-cap--chunks { left: 92%; bottom: 12%; transform: translateX(-50%); text-align: center; color: var(--accent-teaching-training); }
+
+@media (max-width: 760px) {
+  .training-head {
+    position: static;
+    max-width: none;
+  }
+}
+
+/* ---------- Replay + Correction (pinned scroll beat) ---------- */
+/* Alternating section rhythm: this beat uses the soft orange wash. */
+.section--correction {
+  position: relative;
+  background: var(--wash-teaching-correction);
+}
+
+.correction-stage {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.correction-stage__inner {
+  position: relative;
+  width: 100%;
+  align-self: stretch;
+}
+
+.correction-head {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  max-width: 28rem;
+  pointer-events: none;
+}
+
+.correction-head__sub {
+  margin-top: var(--spacing-16);
+}
+
+/* Layer A — replay sits on the RIGHT; copy occupies the left. */
+.correction-replay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--spacing-16);
+  padding-right: clamp(var(--spacing-16), 5vw, var(--spacing-64));
+  will-change: transform, opacity;
+}
+
+/* Color legend for the replay bars (correct prefix / policy error / correction). */
+.replay-legend {
+  display: flex;
+  gap: var(--spacing-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-body-lg);
+  color: var(--ink-muted);
+}
+.replay-legend li { display: flex; align-items: center; gap: 6px; }
+.replay-legend__chip {
+  width: 18px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--c, #000);
+}
+
+/* Rounded-corner card framing the animation. */
+.replay-card {
+  position: relative;
+  width: min(56vw, 600px);
+  aspect-ratio: 1 / 1;
+  max-width: 100%;
+  background: var(--surface-canvas-white-base);
+  border: 1px solid rgba(44, 44, 44, 0.08);
+  border-radius: var(--radius-cards, 20px);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+#correction-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.correction-cap {
+  position: absolute;
+  bottom: 8%;
+  right: clamp(var(--spacing-16), 5vw, var(--spacing-64));
+  font-size: var(--text-body-sm, 0.8rem);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--ink-muted);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Layer B — correction dataset (inspection-style, round-organized rows) */
+.correction-dataset {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-16);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.dataset-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: var(--spacing-24);
+  flex-wrap: wrap;
+}
+
+.dataset-title {
+  margin: 0;
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading-lg);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.dataset-legend {
+  display: flex;
+  gap: var(--spacing-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-body-sm, 0.8rem);
+  color: var(--ink-muted);
+}
+.dataset-legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dataset-legend__chip {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  background: var(--c, #fff);
+  border: 1px solid rgba(44, 44, 44, 0.18);
+}
+
+.dataset-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Rows run full-bleed (edge to edge) even inside the centered .container stage. */
+.dataset-row {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+}
+
+/* Round 1-4 floats on the right edge, over the panning thumbnails, with a
+   feathered blurred backing for legibility. */
+.dataset-row__label {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(16px, 4vw, 56px) 0 32px;
+  font-size: var(--text-heading-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ink);
+  pointer-events: none;
+}
+.dataset-row__label::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.92) 35%, rgba(255, 255, 255, 0) 100%);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  -webkit-mask: linear-gradient(to left, #000 42%, transparent 100%);
+  mask: linear-gradient(to left, #000 42%, transparent 100%);
+}
+
+.dataset-row__viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.dataset-row__track {
+  /* Match the Curation formation cell size for a consistent pan scale. */
+  --cell: clamp(96px, 12vmin, 150px);
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  will-change: transform;
+}
+
+.dataset-cell {
+  width: var(--cell);
+  height: var(--cell);
+  border-radius: var(--radius-icons);
+  /* JS sets --tint to the width background composited over white. */
+  background: var(--tint, var(--surface-canvas-white-base));
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+}
+
+.dataset-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dataset-foot {
+  margin: 0;
+  text-align: center;
+  font-size: var(--text-body-sm, 0.8rem);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--accent-teaching-correction);
+}
+
+@media (max-width: 760px) {
+  .correction-head {
+    position: static;
+    transform: none;
+    max-width: none;
+  }
+  .correction-replay {
+    place-items: center;
+    padding-right: 0;
+  }
+  .dataset-row__label { padding: 0 16px; font-size: var(--text-body-lg); }
+}
+
+/* ---------- Human-AI Co-design (pinned scroll beat) ---------- */
+/* Alternating rhythm continues with the soft violet wash. */
+.section--codesign {
+  position: relative;
+  background: var(--wash-teaming-codesign);
+}
+
+.codesign-stage {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.codesign-stage__inner {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* Clear the fixed nav up top; give the arena the rest of the height. */
+  padding-block: clamp(72px, 9vh, 112px) var(--spacing-24);
+}
+
+.codesign-head {
+  position: relative;
+  z-index: 5;
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+  pointer-events: none;
+}
+
+.codesign-head__sub {
+  margin: var(--spacing-12) auto 0;
+}
+
+.codesign-arena {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  margin-top: var(--spacing-16);
+  /* Square the canvas card against the arena's actual height (JS reads this). */
+  container-type: size;
+}
+
+/* The card holds the co-design canvas and slides left/right per turn. */
+.codesign-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Square, sized to the arena box: never taller than ~90% of the arena
+     height, nor wider than ~46% of its width (leaves room for the L/R slots). */
+  width: min(440px, 46cqw, 90cqh);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  background: var(--surface-canvas-white-base);
+  border: 1px solid rgba(44, 44, 44, 0.08);
+  border-radius: var(--radius-cards, 20px);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  will-change: transform, background-color;
+}
+
+#codesign-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Turn caption sits opposite the card and swaps sides with it. */
+.codesign-turn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(34vw, 360px);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.codesign-turn__who {
+  display: block;
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading-lg);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.codesign-turn__label {
+  display: block;
+  margin-top: var(--spacing-8);
+  font-size: var(--text-body-lg);
+  color: var(--ink-muted);
+}
+
+@media (max-width: 760px) {
+  .codesign-head {
+    position: static;
+    transform: none;
+  }
+  .codesign-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: min(82vw, 420px);
+    margin: 0 auto;
+  }
+  .codesign-turn {
+    display: none;
+  }
+}
+
+/* ---------- Results (pinned scroll beat — two sub-beats) ---------- */
+/* Alternating rhythm continues with the soft yellow wash. */
+.section--results {
+  position: relative;
+  background: var(--wash-results);
+}
+
+.results-stage {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.results-stage__inner {
+  position: relative;
+  width: 100%;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+/* The two beats are stacked in the same box and cross-fade on scroll. */
+.results-beat {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-24);
+  padding-block: clamp(72px, 9vh, 112px) var(--spacing-24);
+  will-change: opacity;
+}
+
+.results-beat--gen {
+  opacity: 0;
+}
+
+.results-head {
+  max-width: 46rem;
+  margin: 0 auto;
+  text-align: center;
+  pointer-events: none;
+}
+
+.results-head .headline { margin-bottom: var(--spacing-16); }
+.results-head__sub { margin: 0 auto; }
+
+/* ---- Beat A: training curves ---- */
+.results-chart {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: min(100%, 980px);
+  margin: var(--spacing-16) auto 0;
+}
+
+#results-curve-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Big "best so far" readout, top-right of the chart. */
+.results-readout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  pointer-events: none;
+}
+
+.results-readout__num {
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: clamp(var(--text-display), 6vw, var(--text-display-lg));
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--bridge-success);
+}
+
+.results-readout__cap {
+  margin-top: 4px;
+  font-size: var(--text-body-lg);
+  color: var(--ink-muted);
+  max-width: 16ch;
+}
+
+.results-legend {
+  position: absolute;
+  left: 8px;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-body-lg);
+  color: var(--ink-muted);
+  pointer-events: none;
+}
+.results-legend li { display: flex; align-items: center; gap: 6px; }
+.results-legend__chip {
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--c, #000);
+}
+
+/* ---- Beat B: generalization arena ---- */
+.gen-arena {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  margin-top: var(--spacing-16);
+  /* Sit the spans / marks / formation a bit higher than dead-center. */
+  transform: translateY(-6%);
+}
+
+/* ① trained spans — three bordered chasm frames with supports */
+.gen-spans {
+  position: absolute;
+  inset: 0;
+  --span-base: clamp(86px, 13vmin, 150px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(var(--spacing-24), 6vw, var(--spacing-88));
+  will-change: opacity;
+}
+
+/* All three frames are the same-size square; only the chasm GAP inside differs
+   by span (--gap: bigger span → wider gap). The two cliff ledges fill the rest.
+   overflow:hidden so the ledges clip to the rounded corners. */
+.gen-span {
+  position: relative;
+  width: var(--span-base);
+  height: var(--span-base);
+  border: 2px solid var(--accent-results);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+/* left/right cliff ledges; the space between them is the chasm gap (--gap). */
+.gen-span::before,
+.gen-span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: calc((100% - var(--gap, 50%)) / 2);
+  height: 22%;
+  background: var(--accent-results);
+  opacity: 0.55;
+}
+.gen-span::before { left: 0; }
+.gen-span::after { right: 0; }
+
+.gen-span__cap {
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading-lg);
+  color: var(--ink);
+}
+
+/* ② question marks in the gaps */
+.gen-marks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.gen-mark {
+  position: absolute;
+  top: 50%;
+  left: var(--x, 50%);
+  transform: translate(-50%, -50%) scale(var(--sc, 1));
+  width: clamp(34px, 5vmin, 52px);
+  height: clamp(34px, 5vmin, 52px);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-arctic-mist-card);
+  box-shadow: var(--shadow-subtle);
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading);
+  color: var(--accent-results);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ③→④ formation wall — per-span columns that bloom, then pan */
+.gen-formation {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gen-track {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: flex-end;
+  gap: clamp(40px, 5vw, 84px); /* large gap separates the 4 "?" groups */
+  padding-inline: 6vw;
+  will-change: transform;
+}
+
+/* Each "?" group's columns cluster together with a small internal gap. */
+.gen-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: flex-end;
+  gap: clamp(10px, 1.4vw, 20px);
+}
+
+.gen-col {
+  --tint: var(--surface-canvas-white-base);
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: var(--radius-icons);
+  background: var(--tint);
+  transform-origin: bottom center;
+  will-change: transform, opacity;
+}
+.gen-col--interp { --tint: #e7f5ff; }
+.gen-col--extrap { --tint: #fff5f5; }
+
+.gen-col__label {
+  order: 2;
+  margin-top: 2px;
+  font-size: var(--text-body-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--ink-muted);
+}
+
+.gen-col__cells {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.gen-cell {
+  width: clamp(58px, 8vmin, 104px);
+  height: clamp(58px, 8vmin, 104px);
+  border-radius: var(--radius-lg);
+  background: var(--surface-canvas-white-base);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+}
+.gen-cell img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Reduced-motion (any width) and small screens: stack the two beats statically. */
+.results-beat--static {
+  position: relative;
+  inset: auto;
+  opacity: 1 !important;
+}
+.results-beat--static .results-chart {
+  flex: none;
+  height: clamp(260px, 44vh, 420px);
+}
+.results-beat--gen.results-beat--static .gen-arena {
+  flex: none;
+  height: clamp(380px, 62vh, 560px);
+}
+
+@media (max-width: 760px) {
+  .results-beat {
+    position: relative;
+    inset: auto;
+    opacity: 1;
+  }
+  .results-chart { flex: none; height: clamp(240px, 40vh, 360px); }
+  .gen-arena { flex: none; height: clamp(360px, 58vh, 520px); }
+  .results-readout { position: static; align-items: flex-start; text-align: left; margin-top: var(--spacing-16); }
+  .results-legend { position: static; margin-top: var(--spacing-16); }
+}
+
+/* ---------- Project information (closing beat) ---------- */
+.section--project {
+  background: var(--wash-project);
+}
+
+.project__inner {
+  max-width: 64rem;
+}
+
+.project__inner .lede {
+  margin-bottom: var(--spacing-48);
+}
+
+.project-papers {
+  display: grid;
+  gap: var(--spacing-24);
+  margin-bottom: var(--spacing-32);
+}
+
+@media (min-width: 860px) {
+  .project-papers { grid-template-columns: 1fr 1fr; }
+}
+
+.paper-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-12, 12px);
+  padding: var(--card-padding);
+  background: var(--surface-arctic-mist-card);
+  border-radius: var(--radius-cards);
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* All four project cards lift on hover. */
+.paper-card:hover,
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: rgba(4, 69, 144, 0.14) 0 18px 34px 2px;
+}
+
+.paper-card__venue {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: var(--radius-badges);
+  background: var(--color-whisper-fade-yellow);
+  color: var(--accent-project);
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-body-lg);
+  letter-spacing: 0.02em;
+}
+
+.paper-card__title {
+  margin: 0;
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.paper-card__authors {
+  margin: 0;
+  font-size: var(--text-heading-sm);
+  color: var(--ink);
+}
+
+.paper-card__note {
+  margin: 0;
+  font-size: var(--text-body-lg);
+  color: var(--ink-faint);
+}
+
+.paper-cite {
+  width: 100%;
+  margin-top: auto;
+}
+
+.paper-cite__summary {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-geist);
+  font-size: var(--text-body-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-electric-blue);
+}
+.paper-cite__summary::before {
+  content: "+";
+  font-weight: var(--font-weight-semibold);
+}
+.paper-cite.is-open .paper-cite__summary::before { content: "−"; }
+
+/* Smooth height expand via collapsing grid row (0fr -> 1fr). */
+.paper-cite__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s ease;
+}
+.paper-cite.is-open .paper-cite__body {
+  grid-template-rows: 1fr;
+}
+.paper-cite__inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.paper-cite__code {
+  margin: var(--spacing-12, 12px) 0 var(--spacing-8);
+  padding: var(--spacing-16);
+  max-height: 220px;
+  overflow: auto;
+  background: var(--color-midnight-ink);
+  color: #e6edf3;
+  border-radius: var(--radius-lg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.paper-cite__copy {
+  padding: 6px 14px;
+  border: 1px solid rgba(83, 88, 98, 0.24);
+  border-radius: var(--radius-buttons);
+  background: var(--surface-canvas-white-base);
+  color: var(--ink);
+  font-family: var(--font-geist);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-body-lg);
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.paper-cite__copy:hover { background: var(--cta-bg); color: var(--cta-fg); }
+.paper-cite__copy.is-copied { background: var(--bridge-success); color: #fff; border-color: transparent; }
+
+.project-links {
+  display: grid;
+  gap: var(--spacing-24);
+}
+
+@media (min-width: 860px) {
+  .project-links { grid-template-columns: 1fr 1fr; }
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--card-padding);
+  background: var(--surface-arctic-mist-card);
+  border-radius: var(--radius-cards);
+  box-shadow: var(--shadow-subtle);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.info-card--link:hover {
+  text-decoration: none;
+}
+
+.info-card__label {
+  font-size: var(--text-body-lg);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.info-card__value {
+  font-family: var(--font-aeonik);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-heading);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+a.info-card__value:hover { text-decoration: underline; }
+
+.info-card__sub {
+  font-size: var(--text-heading-sm);
+  color: var(--ink-muted);
+}
+
+.info-card__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
+  margin-top: var(--spacing-8);
+  font-size: var(--text-heading-sm);
+}
+
+/* ---------- Heading readability scrim (over moving content) ---------- */
+/* Feathered frosted backing so heading copy stays legible above the animation
+   layers in Curation / Training / Correction. Each head is already a positioned,
+   z-indexed layer above the animation; the ::before sits behind its text and
+   blurs the moving content beneath it, masked to a soft ellipse (no hard card). */
+.curation-head::before,
+.training-head::before,
+.correction-head::before {
+  content: "";
+  position: absolute;
+  inset: -16px -24px;
+  z-index: -1;
+  border-radius: var(--radius-3xl);
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-subtle);
+  pointer-events: none;
+}
+
+/* ---------- Motion baseline ---------- */
+/* Elements GSAP will reveal start hidden only when JS + motion is available. */
+.js-anim {
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .btn-primary {
+    transition: none;
+  }
+}

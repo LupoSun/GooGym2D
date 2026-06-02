@@ -1,0 +1,120 @@
+{
+  "trained": [
+    8.0,
+    10.0,
+    12.0
+  ],
+  "viewport_zoom": 1.14,
+  "per_width": [
+    {
+      "width": 7.0,
+      "region": "extrapolation",
+      "files": [
+        "formation/w0700_0.png",
+        "formation/w0700_1.png",
+        "formation/w0700_2.png",
+        "formation/w0700_3.png",
+        "formation/w0700_4.png"
+      ]
+    },
+    {
+      "width": 7.5,
+      "region": "extrapolation",
+      "files": [
+        "formation/w0750_0.png",
+        "formation/w0750_1.png",
+        "formation/w0750_2.png",
+        "formation/w0750_3.png",
+        "formation/w0750_4.png"
+      ]
+    },
+    {
+      "width": 8.5,
+      "region": "interpolation",
+      "files": [
+        "formation/w0850_0.png",
+        "formation/w0850_1.png",
+        "formation/w0850_2.png",
+        "formation/w0850_3.png",
+        "formation/w0850_4.png"
+      ]
+    },
+    {
+      "width": 9.0,
+      "region": "interpolation",
+      "files": [
+        "formation/w0900_0.png",
+        "formation/w0900_1.png",
+        "formation/w0900_2.png",
+        "formation/w0900_3.png",
+        "formation/w0900_4.png"
+      ]
+    },
+    {
+      "width": 9.5,
+      "region": "interpolation",
+      "files": [
+        "formation/w0950_0.png",
+        "formation/w0950_1.png",
+        "formation/w0950_2.png",
+        "formation/w0950_3.png",
+        "formation/w0950_4.png"
+      ]
+    },
+    {
+      "width": 10.5,
+      "region": "interpolation",
+      "files": [
+        "formation/w1050_0.png",
+        "formation/w1050_1.png",
+        "formation/w1050_2.png",
+        "formation/w1050_3.png",
+        "formation/w1050_4.png"
+      ]
+    },
+    {
+      "width": 11.0,
+      "region": "interpolation",
+      "files": [
+        "formation/w1100_0.png",
+        "formation/w1100_1.png",
+        "formation/w1100_2.png",
+        "formation/w1100_3.png",
+        "formation/w1100_4.png"
+      ]
+    },
+    {
+      "width": 11.5,
+      "region": "interpolation",
+      "files": [
+        "formation/w1150_0.png",
+        "formation/w1150_1.png",
+        "formation/w1150_2.png",
+        "formation/w1150_3.png",
+        "formation/w1150_4.png"
+      ]
+    },
+    {
+      "width": 12.5,
+      "region": "extrapolation",
+      "files": [
+        "formation/w1250_0.png",
+        "formation/w1250_1.png",
+        "formation/w1250_2.png",
+        "formation/w1250_3.png",
+        "formation/w1250_4.png"
+      ]
+    },
+    {
+      "width": 13.0,
+      "region": "extrapolation",
+      "files": [
+        "formation/w1300_0.png",
+        "formation/w1300_1.png",
+        "formation/w1300_2.png",
+        "formation/w1300_3.png",
+        "formation/w1300_4.png"
+      ]
+    }
+  ]
+}

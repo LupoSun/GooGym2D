@@ -1,0 +1,138 @@
+{
+  "trained": [
+    8.0,
+    10.0,
+    12.0
+  ],
+  "peak": {
+    "width": 10.0,
+    "rate": 0.365
+  },
+  "rows": [
+    {
+      "width": 7.0,
+      "region": "extrapolation",
+      "success_rate": 0.065
+    },
+    {
+      "width": 7.25,
+      "region": "extrapolation",
+      "success_rate": 0.095
+    },
+    {
+      "width": 7.5,
+      "region": "extrapolation",
+      "success_rate": 0.21
+    },
+    {
+      "width": 7.75,
+      "region": "extrapolation",
+      "success_rate": 0.31
+    },
+    {
+      "width": 8.0,
+      "region": "trained",
+      "success_rate": 0.36
+    },
+    {
+      "width": 8.25,
+      "region": "interpolation",
+      "success_rate": 0.31
+    },
+    {
+      "width": 8.5,
+      "region": "interpolation",
+      "success_rate": 0.15
+    },
+    {
+      "width": 8.75,
+      "region": "interpolation",
+      "success_rate": 0.1
+    },
+    {
+      "width": 9.0,
+      "region": "interpolation",
+      "success_rate": 0.09
+    },
+    {
+      "width": 9.25,
+      "region": "interpolation",
+      "success_rate": 0.15
+    },
+    {
+      "width": 9.5,
+      "region": "interpolation",
+      "success_rate": 0.225
+    },
+    {
+      "width": 9.75,
+      "region": "interpolation",
+      "success_rate": 0.335
+    },
+    {
+      "width": 10.0,
+      "region": "trained",
+      "success_rate": 0.365
+    },
+    {
+      "width": 10.25,
+      "region": "interpolation",
+      "success_rate": 0.33
+    },
+    {
+      "width": 10.5,
+      "region": "interpolation",
+      "success_rate": 0.26
+    },
+    {
+      "width": 10.75,
+      "region": "interpolation",
+      "success_rate": 0.15
+    },
+    {
+      "width": 11.0,
+      "region": "interpolation",
+      "success_rate": 0.085
+    },
+    {
+      "width": 11.25,
+      "region": "interpolation",
+      "success_rate": 0.06
+    },
+    {
+      "width": 11.5,
+      "region": "interpolation",
+      "success_rate": 0.135
+    },
+    {
+      "width": 11.75,
+      "region": "interpolation",
+      "success_rate": 0.195
+    },
+    {
+      "width": 12.0,
+      "region": "trained",
+      "success_rate": 0.22
+    },
+    {
+      "width": 12.25,
+      "region": "extrapolation",
+      "success_rate": 0.2
+    },
+    {
+      "width": 12.5,
+      "region": "extrapolation",
+      "success_rate": 0.13
+    },
+    {
+      "width": 12.75,
+      "region": "extrapolation",
+      "success_rate": 0.04
+    },
+    {
+      "width": 13.0,
+      "region": "extrapolation",
+      "success_rate": 0.02
+    }
+  ]
+}

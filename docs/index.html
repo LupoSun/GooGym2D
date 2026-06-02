@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capturing Structural Intuition + Teaching to Teaming</title>
+  <meta name="description" content="A human-AI co-design framework that learns structural design intuition from demonstrations and returns to the browser as a design partner — built on GooGym2D (IASS 2026 + ACADIA 2026).">
+  <meta property="og:title" content="Capturing Structural Intuition + Teaching to Teaming">
+  <meta property="og:description" content="A human-AI co-design framework that learns structural design intuition from demonstrations and returns to the browser as a design partner.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts: Inter (Geist substitute) + Montserrat (Aeonik substitute) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Montserrat:wght@500;600&display=swap">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="site-nav">
+    <a class="site-nav__brand" href="#hero">T2T</a>
+    <div class="site-nav__links">
+      <a class="site-nav__link" href="#problem">Why</a>
+      <a class="site-nav__link" href="#environment">How</a>
+      <a class="site-nav__link" href="#results">What</a>
+      <a class="btn-primary btn-primary--sm" href="#project">Papers &amp; Code</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- 0 · Hero -->
+    <section id="hero" class="section section--full section--hero">
+      <canvas class="hero__field" id="hero-field" aria-hidden="true"></canvas>
+      <div class="container hero__inner">
+        <h1 class="headline headline--xl js-anim">Capturing structural design intuition for human-AI co-design.</h1>
+        <p class="lede js-anim">
+          Good structural design depends on judgment that is hard to write down: how a designer
+          reads a design brief, conceptualizes a scheme, and knows when a structure feels right.
+          We present a human-AI co-design framework that keeps the designer in the loop throughout training and deployment. The model learns implicit design knowledge directly from human demonstrations and collaborates with the designer through iterative back-and-forth on a shared artifact. 
+        </p>
+        <p class="hero__tags js-anim">#StructuralDesign · #ImitationLearning · #FlowMatching · #HumanAICoDesign · #GenerativeDesign · #HCI</p>
+        <a class="btn-primary js-anim" href="#problem">See how it works</a>
+      </div>
+    </section>
+
+    <!-- 1 · Problem -->
+    <section id="problem" class="section section--full section--canvas">
+      <div class="container">
+        <p class="eyebrow js-anim" style="--section-accent: var(--accent-problem);">The problem</p>
+        <h2 class="headline headline--lg js-anim">Some design knowledge lives in the doing.</h2>
+        <p class="lede js-anim">
+          Engineers do more than calculate. They read load paths, sense proportion, weigh
+          constructability, and make small commitments before every criterion can be formalized.
+          Most computational tools ask them to define the design space first. This project asks
+          whether AI can learn from the way designers actually move through it.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2 · Environment (keeps the `environment` id; lives under the Method nav chapter) -->
+    <section id="environment" class="section section--full section--environment">
+      <div class="container environment__inner">
+        <header class="environment-head">
+          <p class="eyebrow js-anim" style="--section-accent: var(--accent-environment);">Environment</p>
+          <h2 class="headline headline--lg js-anim">Sequential design, grounded by physics.</h2>
+          <p class="body js-anim environment-head__sub">
+            We developed GooGym2D, an open-source 2D structural design testbed based on the
+            Gymnasium API. It frames truss design as graph construction in continuous space. Each
+            action chooses an anchor, heading, and length; hindsight adjustment preserves the
+            intended final geometry; and terminal finite-element analysis checks connectivity,
+            mechanisms, yielding, and buckling.
+          </p>
+        </header>
+
+        <div class="environment-cards">
+          <figure class="env-card js-anim">
+            <div class="env-card__stage"><canvas id="env-action" class="env-canvas"></canvas></div>
+            <figcaption class="env-card__cap">Design action formulation</figcaption>
+          </figure>
+          <figure class="env-card js-anim">
+            <div class="env-card__stage"><canvas id="env-hindsight" class="env-canvas"></canvas></div>
+            <figcaption class="env-card__cap">Hindsight nodal adjustment</figcaption>
+          </figure>
+          <figure class="env-card js-anim">
+            <div class="env-card__stage"><canvas id="env-fem" class="env-canvas"></canvas></div>
+            <figcaption class="env-card__cap">FEM validation</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2.5 · Framework (pinned: copy left, flowchart flies bottom→middle→top on the right) -->
+    <section id="framework" class="section--framework">
+      <div class="framework-stage">
+        <div class="container framework-stage__inner">
+          <div class="framework-copy">
+            <p class="eyebrow js-anim" style="--section-accent: var(--accent-framework);">Framework</p>
+            <h2 class="headline headline--lg js-anim">One loop, from teaching to teaming.</h2>
+            <p class="body js-anim framework-head__sub">
+              The pieces form a single human-in-the-loop cycle. Designers demonstrate and curate
+              examples; a flow-based policy trains on them; a designer replays and corrects where it
+              fails; and the improved policy returns to the browser as a co-design partner.
+            </p>
+          </div>
+          <div class="framework-viewport" aria-hidden="true">
+            <img class="framework-flow"
+              src="assets/framework/flowchart.png"
+              loading="lazy"
+              decoding="async"
+              alt="Teaching-to-teaming framework: demonstration, curation, training, and correction feed a flow-based policy that returns to the browser for human-AI co-design, with the human kept in the loop.">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · Collection (pinned, scroll-driven) -->
+    <section id="teaching-collection" class="section--collection">
+      <div class="collection-stage">
+        <div class="container collection-stage__inner">
+          <header class="collection-head">
+            <p class="eyebrow" style="--section-accent: var(--accent-teaching-collection);">Demonstration</p>
+            <h2 class="headline headline--lg">Designers show the AI how they design.</h2>
+            <p class="body collection-head__sub">
+              Each bridge begins as a sequence of human decisions in the browser. Across 323 seed
+              demonstrations for 3 spans, the dataset captures different ways of solving the same
+              structural problem: deep trusses, flatter profiles, symmetric moves, and stranger but
+              still valid geometries.
+            </p>
+          </header>
+
+          <div class="collection-canvas" id="collection-canvas">
+            <!-- ACADIA BridgeDesigner GUI in OS-window chrome -->
+            <div class="os-window" id="collection-gui">
+              <div class="os-window__bar">
+                <span class="os-dot os-dot--close"></span>
+                <span class="os-dot os-dot--min"></span>
+                <span class="os-dot os-dot--max"></span>
+                <span class="os-window__label">BridgeDesigner</span>
+              </div>
+              <div class="os-window__body">
+                <canvas id="collection-gui-canvas" width="800" height="800"></canvas>
+              </div>
+            </div>
+
+            <!-- Mosaic cloud (cards injected from manifest.json by collection.js) -->
+            <div class="mosaic" id="collection-mosaic" aria-hidden="true"></div>
+          </div>
+
+          <aside class="stats-panel" id="collection-stats">
+            <p class="stats-panel__title">Demonstration count</p>
+            <div class="stats-panel__total">
+              <span class="stats-panel__num" data-count-to="323">0</span>
+            </div>
+            <ul class="stats-panel__widths">
+              <li><span class="stats-panel__w-num" data-count-to="99">0</span><span class="stats-panel__w-cap">8 m</span></li>
+              <li><span class="stats-panel__w-num" data-count-to="123">0</span><span class="stats-panel__w-cap">10 m</span></li>
+              <li><span class="stats-panel__w-num" data-count-to="101">0</span><span class="stats-panel__w-cap">12 m</span></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · Curation (pinned, scroll-driven) -->
+    <section id="teaching-curation" class="section--curation">
+      <div class="curation-stage">
+        <div class="container curation-stage__inner">
+          <header class="curation-head">
+            <p class="eyebrow" style="--section-accent: var(--accent-teaching-curation);">Curation</p>
+            <h2 class="headline headline--lg">Keep the examples worth learning from.</h2>
+            <p class="body curation-head__sub">A dataset is also a design decision.</p>
+            <p class="body curation-head__sub">
+              The gallery lets successful bridges be replayed, compared, and curated before they
+              enter training, so the model learns from work a designer is willing to stand behind.
+            </p>
+          </header>
+
+          <!-- Gallery GUI (lands, scales, flies out) -->
+          <div class="curation-canvas" id="curation-canvas">
+            <div class="os-window os-window--wide" id="curation-gui">
+              <div class="os-window__bar">
+                <span class="os-dot os-dot--close"></span>
+                <span class="os-dot os-dot--min"></span>
+                <span class="os-dot os-dot--max"></span>
+                <span class="os-window__label">Bridge Gallery</span>
+              </div>
+              <div class="os-window__body os-window__body--dark">
+                <img id="curation-gallery-img" src="assets/curation/gallery.png" loading="lazy" decoding="async" alt="ACADIA web-player gallery of successful bridges">
+              </div>
+            </div>
+          </div>
+
+          <!-- Formation with selection (horizontal pan) -->
+          <div class="formation" id="curation-formation" aria-hidden="true">
+            <div class="formation__track" id="curation-track"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · Training (pinned, scroll-driven) -->
+    <section id="teaching-training" class="section--training">
+      <div class="training-stage">
+        <div class="container training-stage__inner">
+          <header class="training-head">
+            <p class="eyebrow" style="--section-accent: var(--accent-teaching-training);">Training</p>
+            <h2 class="headline headline--lg">Flow matching turns noise into actions.</h2>
+            <p class="body training-head__sub">For any design, there is never one correct answer.</p>
+            <p class="body training-head__sub">
+              Flow matching provides a way to represent this multi-modality and lets the policy learn
+              a distribution of plausible design actions, so the same start can lead to different
+              structurally sensible options instead of one averaged compromise.
+            </p>
+            <p class="body training-head__sub">
+              Each query predicts several bars together (action chunks), helping the model express
+              short design intentions rather than reacting one placement at a time.
+            </p>
+          </header>
+
+          <!-- noise → vector field → action chunks (drawn on canvas) -->
+          <div class="training-diagram" id="training-diagram" aria-hidden="true">
+            <canvas id="training-canvas"></canvas>
+            <span class="training-cap training-cap--noise">noise</span>
+            <span class="training-cap training-cap--field">vector field</span>
+            <span class="training-cap training-cap--chunks">action chunks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · Correction (pinned, scroll-driven) -->
+    <section id="teaching-correction" class="section--correction">
+      <div class="correction-stage">
+        <div class="container correction-stage__inner">
+          <header class="correction-head">
+            <p class="eyebrow" style="--section-accent: var(--accent-teaching-correction);">Correction</p>
+            <h2 class="headline headline--lg">Replay the rollout, fix what failed.</h2>
+            <p class="body correction-head__sub">The AI acts first; the human intervenes only when needed.</p>
+            <p class="body correction-head__sub">
+              The inspector replays the rollout, finds the moment worth saving, and takes over from
+              there. That correction becomes new training data aimed exactly at the model's blind spot.
+            </p>
+          </header>
+
+          <!-- Layer A: replay — sequential placement driven by vertical scroll -->
+          <div class="correction-replay" id="correction-replay" aria-hidden="true">
+            <div class="replay-card">
+              <canvas id="correction-canvas"></canvas>
+            </div>
+            <ul class="replay-legend">
+              <li><span class="replay-legend__chip" style="--c: #1d63b8;"></span>Correct prefix</li>
+              <li><span class="replay-legend__chip" style="--c: #afb4b9;"></span>Policy error</li>
+              <li><span class="replay-legend__chip" style="--c: #ff7e43;"></span>Human correction</li>
+            </ul>
+          </div>
+
+          <!-- Layer B: correction dataset — round-organized grid (inspection style) -->
+          <div class="correction-dataset" id="correction-dataset" aria-hidden="true">
+            <div class="dataset-header">
+              <p class="dataset-title">Correction Dataset</p>
+              <ul class="dataset-legend">
+                <li><span class="dataset-legend__chip" style="--c: #fff0f6;"></span>8 m</li>
+                <li><span class="dataset-legend__chip" style="--c: #e3fafc;"></span>10 m</li>
+                <li><span class="dataset-legend__chip" style="--c: #fff9db;"></span>12 m</li>
+              </ul>
+            </div>
+            <div class="dataset-rows" id="correction-rows"></div>
+            <p class="dataset-foot">correction rounds &middot; retraining</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · Human-AI Co-design (pinned, scroll-driven) -->
+    <section id="teaming-codesign" class="section--codesign">
+      <div class="codesign-stage">
+        <div class="container codesign-stage__inner">
+          <header class="codesign-head">
+            <p class="eyebrow" style="--section-accent: var(--accent-teaming-codesign);">Human-AI Co-design</p>
+            <h2 class="headline headline--lg">Design together, turn by turn.</h2>
+            <p class="body codesign-head__sub">
+              After training, the policy comes back into the Bridge Designer, forming a
+              mixed-initiative system. The human places a bar, the AI offers ghost-bar
+              continuations, and the designer keeps the final say: accept a suggestion, ignore it,
+              or keep drawing by hand.
+            </p>
+          </header>
+
+          <div class="codesign-arena" id="codesign-arena" aria-hidden="true">
+            <div class="codesign-card" id="codesign-card">
+              <canvas id="codesign-canvas"></canvas>
+            </div>
+            <div class="codesign-turn" id="codesign-turn">
+              <span class="codesign-turn__who" id="codesign-who">Human</span>
+              <span class="codesign-turn__label" id="codesign-label">Human action</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · Results (pinned, scroll-driven) — two beats: training curves, then generalization -->
+    <section id="results" class="section--results">
+      <div class="results-stage">
+        <div class="container results-stage__inner">
+
+          <!-- Beat A — training success across DAgger rounds -->
+          <div class="results-beat results-beat--train" id="results-train">
+            <header class="results-head">
+              <p class="eyebrow" style="--section-accent: var(--accent-results);">Results &middot; Training</p>
+              <h2 class="headline headline--lg">Targeted correction makes the policy better.</h2>
+              <p class="body results-head__sub">
+                The model improves because the human does not add random examples. Each round
+                corrects the states the policy actually visits and struggles with. The selected
+                policy reaches 36.5% width-balanced success across the three trained spans.
+              </p>
+            </header>
+
+            <div class="results-chart" id="results-chart">
+              <canvas id="results-curve-canvas" role="img" aria-label="Line chart: width-balanced policy success rate rising across five training rounds, from 21% to a peak of 36.5%."></canvas>
+              <div class="results-readout" id="results-readout">
+                <span class="results-readout__num" id="results-best-num">0%</span>
+                <span class="results-readout__cap" id="results-best-cap">width-balanced success</span>
+              </div>
+              <ul class="results-legend" id="results-legend" aria-hidden="true"></ul>
+            </div>
+          </div>
+
+          <!-- Beat B — span generalization (sketch ①→④) -->
+          <div class="results-beat results-beat--gen" id="results-gen">
+            <header class="results-head results-head--gen">
+              <p class="eyebrow" style="--section-accent: var(--accent-results);">Results &middot; Generalization</p>
+              <h2 class="headline headline--lg" id="gen-headline">Trained on three spans.</h2>
+              <p class="body results-head__sub" id="gen-sub">
+                The policy learned from bridges at 8 m, 10 m, and 12 m.
+              </p>
+            </header>
+
+            <div class="gen-arena" id="gen-arena" aria-hidden="true">
+              <!-- ① trained spans -->
+              <div class="gen-spans" id="gen-spans">
+                <div class="gen-span" style="--gap: 38%;"><span class="gen-span__cap">8 m</span></div>
+                <div class="gen-span" style="--gap: 50%;"><span class="gen-span__cap">10 m</span></div>
+                <div class="gen-span" style="--gap: 62%;"><span class="gen-span__cap">12 m</span></div>
+              </div>
+
+              <!-- ② question marks in the gaps (built in JS) -->
+              <div class="gen-marks" id="gen-marks"></div>
+
+              <!-- ③→④ per-span mosaics that bloom, then form a panning wall (built in JS) -->
+              <div class="gen-formation" id="gen-formation">
+                <div class="gen-track" id="gen-track"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · Project information — papers, citations, code, contact (closing beat) -->
+    <section id="project" class="section section--full section--project">
+      <div class="container project__inner">
+        <p class="eyebrow js-anim" style="--section-accent: var(--accent-project);">Project Information</p>
+        <h2 class="headline headline--lg js-anim">Papers, code &amp; contact.</h2>
+        <p class="lede js-anim">
+          The IASS paper focuses on capturing structural intuition through flow-based imitation
+          and human-gated correction. The ACADIA paper extends the same infrastructure into a
+          browser-based teaching-to-teaming co-design framework. Both papers are built on GooGym2D,
+          an open-source, graph-based structural design environment with FEM validation.
+        </p>
+
+        <div class="project-papers">
+          <article class="paper-card js-anim">
+            <span class="paper-card__venue">IASS 2026</span>
+            <h3 class="paper-card__title">Capturing Structural Intuition: Human-Gated Imitation Learning for Structural Design with Flow Matching</h3>
+            <p class="paper-card__authors">Tao Sun, Shaoyi Wang, Simon Schleicher, Ramon E. Weber</p>
+            <p class="paper-card__note">Proceedings of the IASS Annual Symposium 2026 · PDF coming soon.</p>
+            <div class="paper-cite">
+              <button class="paper-cite__summary" type="button" aria-expanded="false" aria-controls="bib-iass-body">Cite — BibTeX</button>
+              <div class="paper-cite__body">
+                <div class="paper-cite__inner" id="bib-iass-body">
+                  <pre class="paper-cite__code" id="bib-iass">@inproceedings{sun2026capturing,
+  title     = {Capturing Structural Intuition: Human-Gated Imitation
+               Learning for Structural Design with Flow Matching},
+  author    = {Sun, Tao and Wang, Shaoyi and Schleicher, Simon
+               and Weber, Ramon E.},
+  booktitle = {Proceedings of the IASS Annual Symposium},
+  year      = {2026},
+  organization = {International Association for Shell and Spatial Structures}
+}</pre>
+                  <button class="paper-cite__copy" type="button" data-copy-target="bib-iass" aria-label="Copy IASS 2026 BibTeX citation">Copy</button>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="paper-card js-anim">
+            <span class="paper-card__venue">ACADIA 2026</span>
+            <h3 class="paper-card__title">From Teaching to Teaming: Human-AI Co-Design Environment for Architectural and Structural Design</h3>
+            <p class="paper-card__authors">Tao Sun, Shaoyi Wang, Simon Schleicher, Ramon E. Weber</p>
+            <p class="paper-card__note">Proceedings of ACADIA 2026 · PDF coming soon.</p>
+            <div class="paper-cite">
+              <button class="paper-cite__summary" type="button" aria-expanded="false" aria-controls="bib-acadia-body">Cite — BibTeX</button>
+              <div class="paper-cite__body">
+                <div class="paper-cite__inner" id="bib-acadia-body">
+                  <pre class="paper-cite__code" id="bib-acadia">@inproceedings{sun2026teaming,
+  title     = {From Teaching to Teaming: Human-AI Co-Design Environment
+               for Architectural and Structural Design},
+  author    = {Sun, Tao and Wang, Shaoyi and Schleicher, Simon
+               and Weber, Ramon E.},
+  booktitle = {Proceedings of the Association for Computer Aided Design
+               in Architecture (ACADIA)},
+  year      = {2026}
+}</pre>
+                  <button class="paper-cite__copy" type="button" data-copy-target="bib-acadia" aria-label="Copy ACADIA 2026 BibTeX citation">Copy</button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="project-links">
+          <a class="info-card info-card--link js-anim" href="https://github.com/LupoSun/GooGym2D" target="_blank" rel="noopener">
+            <span class="info-card__label">Code</span>
+            <span class="info-card__value">github.com/LupoSun/GooGym2D</span>
+            <span class="info-card__sub">Environment, training, web player &amp; assist mode.</span>
+          </a>
+
+          <div class="info-card js-anim">
+            <span class="info-card__label">Contact</span>
+            <a class="info-card__value" href="mailto:tao_sun@berkeley.edu">tao_sun@berkeley.edu</a>
+            <span class="info-card__sub">Tao Sun · University of California, Berkeley</span>
+            <span class="info-card__social">
+              <a href="https://scholar.google.com/citations?user=MQ8mvtAAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+              <a href="https://taosun.net" target="_blank" rel="noopener">Website</a>
+              <a href="https://www.linkedin.com/in/tao-sun-lupo/" target="_blank" rel="noopener">LinkedIn</a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- GSAP + ScrollTrigger via CDN (no build step) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Vendored ACADIA BridgeDesigner renderer (window.BridgeRenderer) -->
+  <script src="js/vendor/bridge_renderer.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

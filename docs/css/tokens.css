@@ -1,0 +1,194 @@
+/* GooGym2D — design tokens
+ * Source of truth: project_website/design/DESIGN.md (GenieStudio light system).
+ * Layers: (1) GenieStudio chrome, (2) Open Color -> per-section accents,
+ * (3) bridge replay colors (Canvas/SVG geometry only — not page UI).
+ */
+
+:root {
+  /* ---- Colors (GenieStudio) ---- */
+  --color-midnight-ink: #181d27;
+  --color-arctic-mist: #fafdff;
+  --color-canvas-white: #ffffff;
+  --color-obsidian: #0a0d12;
+  --color-silver-pine: #535862;
+  --color-ash-gray: #93979f;
+  --color-sky-wash: #ebf5ff;
+  --color-ghostly-blue: #cce7ff;
+  --color-electric-blue: #0069e0;
+  --color-lavender-mist: #f1e6ff;
+  --color-mint-glaze: #d3f6e3;
+  --color-sunburst-yellow: #bb9915;
+  --color-deep-violet: #9552e0;
+  --color-ocean-spray: #4fbeff;
+  --color-zesty-orange: #f26110;
+  --color-luminous-blue: #0099ff;
+  --color-whisper-fade-yellow: #fff9e0;
+  --gradient-whisper-fade-yellow: linear-gradient(rgb(255, 249, 224) 0%, rgb(255, 236, 163) 100%);
+  --color-whisper-fade-violet: #f4ebff;
+  --gradient-whisper-fade-violet: linear-gradient(rgb(244, 235, 255) 0%, rgb(228, 204, 255) 100%);
+  --color-whisper-fade-blue: #e5f6ff;
+  --gradient-whisper-fade-blue: linear-gradient(rgb(229, 246, 255) 0%, rgb(194, 233, 255) 100%);
+  --color-whisper-fade-orange: #fff2eb;
+  --gradient-whisper-fade-orange: linear-gradient(rgb(255, 242, 235) 0%, rgb(255, 209, 184) 100%);
+
+  /* ---- Typography — families (Geist->Inter, Aeonik->Montserrat) ---- */
+  --font-geist: 'Inter', 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-aeonik: 'Montserrat', 'Aeonik', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* ---- Typography — scale ---- */
+  --text-body-lg: 14px;
+  --leading-body-lg: 1.33;
+  --tracking-body-lg: -0.14px;
+  --text-heading-sm: 18px;
+  --leading-heading-sm: 1.5;
+  --tracking-heading-sm: -0.18px;
+  --text-heading: 20px;
+  --leading-heading: 1.25;
+  --tracking-heading: -0.4px;
+  --text-heading-lg: 24px;
+  --leading-heading-lg: 1.2;
+  --tracking-heading-lg: -0.48px;
+  --text-display: 32px;
+  --leading-display: 1.17;
+  --tracking-display: -0.64px;
+  --text-display-lg: 48px;
+  --leading-display-lg: 1.11;
+  --tracking-display-lg: -0.96px;
+  --text-display-xl: 72px;
+  --leading-display-xl: 1.05;
+  --tracking-display-xl: -1.44px;
+
+  /* ---- Typography — weights ---- */
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* ---- Spacing (8px base) ---- */
+  --spacing-unit: 8px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-88: 88px;
+  --spacing-120: 120px;
+  --spacing-160: 160px;
+
+  /* ---- Layout ---- */
+  --section-gap: 24px;
+  --card-padding: 40px;
+  --element-gap: 24px;
+  --content-max: 1280px;
+  --measure: 60ch;
+
+  /* ---- Border radius ---- */
+  --radius-lg: 8px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-3xl-2: 32px;
+  --radius-3xl-3: 36px;
+  --radius-full: 90px;
+  --radius-cards: 32px;
+  --radius-icons: 16px;
+  --radius-badges: 90px;
+  --radius-images: 16px;
+  --radius-buttons: 32px;
+
+  /* ---- Shadows ---- */
+  --shadow-lg: rgba(4, 69, 144, 0.08) 0px 14px 20px 4px;
+  --shadow-subtle: rgba(10, 13, 18, 0.08) 0px 1px 2px 0px, rgba(10, 13, 18, 0.06) 0px 0px 0px 1px;
+
+  /* ---- Surfaces ---- */
+  --surface-sky-wash-canvas: #ebf5ff;
+  --surface-canvas-white-base: #ffffff;
+  --surface-arctic-mist-card: #fafdff;
+
+  /* ---- Semantic roles ---- */
+  --ink: var(--color-obsidian);
+  --ink-muted: var(--color-silver-pine);
+  --ink-faint: var(--color-ash-gray);
+  --bg: var(--surface-canvas-white-base);
+  --bg-alt: var(--surface-sky-wash-canvas);
+  --cta-bg: var(--color-midnight-ink);
+  --cta-fg: var(--color-canvas-white);
+
+  /* ---- Open Color -> per-section accents (DESIGN.md map) ----
+   * Use --wash-* as a section/card background, --accent-* on eyebrow pill,
+   * icon stroke, or diagram highlight.
+   */
+  --wash-hero: var(--gradient-whisper-fade-blue);
+  --accent-hero: var(--color-ocean-spray);
+
+  --wash-problem: var(--surface-canvas-white-base);
+  --accent-problem: var(--color-silver-pine);
+
+  /* Environment beat — unified GREEN family (accent + background) */
+  --color-grass-green: #2f9e44;
+  --wash-environment: linear-gradient(#ebfbee 0%, #d3f9d8 100%);
+  --accent-environment: var(--color-grass-green);
+
+  /* Framework overview — INDIGO (unused Open Color family) */
+  --color-indigo: #4263eb;
+  --wash-framework: linear-gradient(#edf2ff 0%, #dbe4ff 100%);
+  --accent-framework: var(--color-indigo);
+
+  /* Teaching-loop accents matched to ACADIA_FlowChart.png (Open Color);
+   * backgrounds are the matching light tint per stage. */
+  --color-flow-cyan: #32b4dc;   /* Demonstration */
+  --color-flow-pink: #f06595;   /* Curation */
+  --color-flow-green: #0ca678;  /* Training (Open Color teal) */
+  --color-flow-yellow: #f59f00; /* Project information (Open Color yellow) */
+  --color-flow-lime: #82c91e;   /* Results (Open Color lime) */
+
+  /* Vertical light→deeper gradients so the pinned beats darken as you scroll
+     (matches Correction's whisper-fade behaviour). */
+  --wash-teaching-collection: linear-gradient(#e3fafc 0%, #c5f6fa 100%);   /* light blue */
+  --accent-teaching-collection: var(--color-flow-cyan);
+
+  --wash-teaching-curation: linear-gradient(#fff0f6 0%, #ffdeeb 100%);     /* light pink */
+  --accent-teaching-curation: var(--color-flow-pink);
+
+  --wash-teaching-training: linear-gradient(#e6fcf5 0%, #c3fae8 100%);     /* light teal */
+  --accent-teaching-training: var(--color-flow-green);
+
+  --wash-teaching-correction: var(--gradient-whisper-fade-orange);
+  --accent-teaching-correction: var(--color-zesty-orange);
+
+  --wash-teaming-codesign: var(--gradient-whisper-fade-violet);
+  --accent-teaming-codesign: var(--color-deep-violet);
+
+  --wash-results: linear-gradient(#f4fce3 0%, #d8f5a2 100%);
+  --accent-results: var(--color-flow-lime);
+
+  --wash-project: linear-gradient(#fff9db 0%, #ffec99 100%);
+  --accent-project: var(--color-flow-yellow);
+
+  /* ---- Bridge replay colors (inside Canvas/SVG visuals only) ---- */
+  --bridge-bar: #236e8c;
+  --bridge-hud-accent: #32b4dc;
+  --bridge-success: #5f9965;
+  --bridge-fail: #b54d3a;
+  --bridge-node-free: #d2f25e;
+  --bridge-sky: #9beaf2;
+  /* Formation-plot placement-order gradient (bar 1 darkest → bar 20 lightest) */
+  --bridge-bar-dark: #0420bf;
+  --bridge-bar-light: #9beaf2;
+  --bridge-node-start: #f26b83; /* pink — start/support point */
+  --bridge-node-edge: #2c2c2c;
+  /* DAgger replay/correction palette (matches plot_dagger_individuals.py) */
+  --bridge-bar-wrong: #afb4b9;        /* wrong policy suffix bars */
+  --bridge-node-wrong: #c3c8cd;       /* wrong-only nodes */
+  --bridge-node-wrong-edge: #91969b;
+  --bridge-correction: #ff7e43;       /* human correction bars (orange) */
+  --bridge-node-correction: #ffb384;  /* correction nodes */
+  --bridge-earth: #a3afbf40;          /* cliffs */
+  /* Co-design (assistive) palette — matches plot_assistive_codesign_episode.py */
+  --codesign-ghost: #e64980;          /* AI ghost-bar suggestion (dashed) */
+  --codesign-ghost-node: #f783ac;
+  --codesign-human-bg: #e3fafc;       /* human-turn panel tint (cyan) */
+  --codesign-ai-bg: #f4fce3;          /* AI-turn panel tint (green) */
+}

@@ -1,0 +1,489 @@
+{
+  "source_store": "experiments_vB/cache/ACADIA_8_10_12_WEB_GOLDEN/bridge_demos.zarr",
+  "rows": 4,
+  "cols": 20,
+  "seed": 7,
+  "gallery": "gallery.png",
+  "grid": [
+    {
+      "file": "grid/bridge_000.png",
+      "episode": 19,
+      "n_bars": 9,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_001.png",
+      "episode": 20,
+      "n_bars": 11,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_002.png",
+      "episode": 23,
+      "n_bars": 13,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_003.png",
+      "episode": 24,
+      "n_bars": 13,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_004.png",
+      "episode": 25,
+      "n_bars": 11,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_005.png",
+      "episode": 29,
+      "n_bars": 13,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_006.png",
+      "episode": 30,
+      "n_bars": 9,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_007.png",
+      "episode": 31,
+      "n_bars": 13,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_008.png",
+      "episode": 32,
+      "n_bars": 13,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_009.png",
+      "episode": 35,
+      "n_bars": 11,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_010.png",
+      "episode": 37,
+      "n_bars": 11,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_011.png",
+      "episode": 39,
+      "n_bars": 11,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_012.png",
+      "episode": 41,
+      "n_bars": 15,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_013.png",
+      "episode": 44,
+      "n_bars": 17,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_014.png",
+      "episode": 46,
+      "n_bars": 13,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_015.png",
+      "episode": 48,
+      "n_bars": 17,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_016.png",
+      "episode": 49,
+      "n_bars": 17,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_017.png",
+      "episode": 52,
+      "n_bars": 25,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_018.png",
+      "episode": 60,
+      "n_bars": 19,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_019.png",
+      "episode": 63,
+      "n_bars": 21,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_020.png",
+      "episode": 68,
+      "n_bars": 17,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_021.png",
+      "episode": 73,
+      "n_bars": 11,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_022.png",
+      "episode": 77,
+      "n_bars": 13,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_023.png",
+      "episode": 84,
+      "n_bars": 17,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_024.png",
+      "episode": 92,
+      "n_bars": 25,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_025.png",
+      "episode": 96,
+      "n_bars": 13,
+      "chasm_width": 8.0
+    },
+    {
+      "file": "grid/bridge_026.png",
+      "episode": 105,
+      "n_bars": 25,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_027.png",
+      "episode": 109,
+      "n_bars": 20,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_028.png",
+      "episode": 113,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_029.png",
+      "episode": 114,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_030.png",
+      "episode": 123,
+      "n_bars": 19,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_031.png",
+      "episode": 124,
+      "n_bars": 23,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_032.png",
+      "episode": 127,
+      "n_bars": 15,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_033.png",
+      "episode": 147,
+      "n_bars": 23,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_034.png",
+      "episode": 148,
+      "n_bars": 23,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_035.png",
+      "episode": 153,
+      "n_bars": 15,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_036.png",
+      "episode": 157,
+      "n_bars": 13,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_037.png",
+      "episode": 160,
+      "n_bars": 15,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_038.png",
+      "episode": 165,
+      "n_bars": 19,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_039.png",
+      "episode": 174,
+      "n_bars": 19,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_040.png",
+      "episode": 175,
+      "n_bars": 21,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_041.png",
+      "episode": 185,
+      "n_bars": 15,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_042.png",
+      "episode": 187,
+      "n_bars": 21,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_043.png",
+      "episode": 190,
+      "n_bars": 19,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_044.png",
+      "episode": 202,
+      "n_bars": 21,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_045.png",
+      "episode": 203,
+      "n_bars": 19,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_046.png",
+      "episode": 214,
+      "n_bars": 19,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_047.png",
+      "episode": 215,
+      "n_bars": 21,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_048.png",
+      "episode": 217,
+      "n_bars": 21,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_049.png",
+      "episode": 218,
+      "n_bars": 15,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_050.png",
+      "episode": 222,
+      "n_bars": 21,
+      "chasm_width": 12.0
+    },
+    {
+      "file": "grid/bridge_051.png",
+      "episode": 229,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_052.png",
+      "episode": 232,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_053.png",
+      "episode": 238,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_054.png",
+      "episode": 250,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_055.png",
+      "episode": 253,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_056.png",
+      "episode": 254,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_057.png",
+      "episode": 259,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_058.png",
+      "episode": 262,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_059.png",
+      "episode": 268,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_060.png",
+      "episode": 272,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_061.png",
+      "episode": 274,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_062.png",
+      "episode": 276,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_063.png",
+      "episode": 280,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_064.png",
+      "episode": 282,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_065.png",
+      "episode": 285,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_066.png",
+      "episode": 286,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_067.png",
+      "episode": 288,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_068.png",
+      "episode": 289,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_069.png",
+      "episode": 292,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_070.png",
+      "episode": 293,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_071.png",
+      "episode": 294,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_072.png",
+      "episode": 295,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_073.png",
+      "episode": 297,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_074.png",
+      "episode": 298,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_075.png",
+      "episode": 299,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_076.png",
+      "episode": 311,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_077.png",
+      "episode": 316,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_078.png",
+      "episode": 321,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "grid/bridge_079.png",
+      "episode": 322,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    }
+  ]
+}

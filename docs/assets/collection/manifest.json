@@ -1,0 +1,620 @@
+{
+  "source_store": "experiments_vB/cache/COMBINED_11_13_15_17_19BARS/bridge_demos.zarr",
+  "mosaic": [
+    {
+      "file": "mosaic/bridge_000.png",
+      "episode": 0,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_001.png",
+      "episode": 1,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_002.png",
+      "episode": 2,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_003.png",
+      "episode": 3,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_004.png",
+      "episode": 4,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_005.png",
+      "episode": 5,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_006.png",
+      "episode": 6,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_007.png",
+      "episode": 7,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_008.png",
+      "episode": 8,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_009.png",
+      "episode": 9,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_010.png",
+      "episode": 10,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_011.png",
+      "episode": 11,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_012.png",
+      "episode": 12,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_013.png",
+      "episode": 13,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_014.png",
+      "episode": 14,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_015.png",
+      "episode": 15,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_016.png",
+      "episode": 16,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_017.png",
+      "episode": 17,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_018.png",
+      "episode": 18,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_019.png",
+      "episode": 19,
+      "n_bars": 11,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_020.png",
+      "episode": 20,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_021.png",
+      "episode": 21,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_022.png",
+      "episode": 22,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_023.png",
+      "episode": 23,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_024.png",
+      "episode": 24,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_025.png",
+      "episode": 25,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_026.png",
+      "episode": 26,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_027.png",
+      "episode": 27,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_028.png",
+      "episode": 28,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_029.png",
+      "episode": 29,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_030.png",
+      "episode": 30,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_031.png",
+      "episode": 31,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_032.png",
+      "episode": 32,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_033.png",
+      "episode": 33,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_034.png",
+      "episode": 34,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_035.png",
+      "episode": 35,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_036.png",
+      "episode": 36,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_037.png",
+      "episode": 37,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_038.png",
+      "episode": 38,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_039.png",
+      "episode": 39,
+      "n_bars": 13,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_040.png",
+      "episode": 40,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_041.png",
+      "episode": 41,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_042.png",
+      "episode": 42,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_043.png",
+      "episode": 43,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_044.png",
+      "episode": 44,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_045.png",
+      "episode": 45,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_046.png",
+      "episode": 46,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_047.png",
+      "episode": 47,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_048.png",
+      "episode": 48,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_049.png",
+      "episode": 49,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_050.png",
+      "episode": 50,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_051.png",
+      "episode": 51,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_052.png",
+      "episode": 52,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_053.png",
+      "episode": 53,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_054.png",
+      "episode": 54,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_055.png",
+      "episode": 55,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_056.png",
+      "episode": 56,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_057.png",
+      "episode": 57,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_058.png",
+      "episode": 58,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_059.png",
+      "episode": 59,
+      "n_bars": 15,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_060.png",
+      "episode": 60,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_061.png",
+      "episode": 61,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_062.png",
+      "episode": 62,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_063.png",
+      "episode": 63,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_064.png",
+      "episode": 64,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_065.png",
+      "episode": 65,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_066.png",
+      "episode": 66,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_067.png",
+      "episode": 67,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_068.png",
+      "episode": 68,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_069.png",
+      "episode": 69,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_070.png",
+      "episode": 70,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_071.png",
+      "episode": 71,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_072.png",
+      "episode": 72,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_073.png",
+      "episode": 73,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_074.png",
+      "episode": 74,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_075.png",
+      "episode": 75,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_076.png",
+      "episode": 76,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_077.png",
+      "episode": 77,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_078.png",
+      "episode": 78,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_079.png",
+      "episode": 79,
+      "n_bars": 17,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_080.png",
+      "episode": 80,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_081.png",
+      "episode": 81,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_082.png",
+      "episode": 82,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_083.png",
+      "episode": 83,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_084.png",
+      "episode": 84,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_085.png",
+      "episode": 85,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_086.png",
+      "episode": 86,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_087.png",
+      "episode": 87,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_088.png",
+      "episode": 88,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_089.png",
+      "episode": 89,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_090.png",
+      "episode": 90,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_091.png",
+      "episode": 91,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_092.png",
+      "episode": 92,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_093.png",
+      "episode": 93,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_094.png",
+      "episode": 94,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_095.png",
+      "episode": 95,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_096.png",
+      "episode": 96,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_097.png",
+      "episode": 97,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_098.png",
+      "episode": 98,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    },
+    {
+      "file": "mosaic/bridge_099.png",
+      "episode": 99,
+      "n_bars": 19,
+      "chasm_width": 10.0
+    }
+  ],
+  "gui": {
+    "n_bars": 15,
+    "chasm_width": 10.0,
+    "step_count": 15,
+    "episode": 49
+  },
+  "stats": {
+    "label": "Demonstration count",
+    "total": 323,
+    "by_width": {
+      "8": 99,
+      "10": 123,
+      "12": 101
+    }
+  }
+}
