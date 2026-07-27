@@ -1,0 +1,69 @@
+cff-version: 1.2.0
+title: "GooGym2D: A Gymnasium 2D bridge-construction environment"
+message: >-
+  If you use this software, please cite both the software itself and the
+  paper describing the work it comes from.
+type: software
+authors:
+  - family-names: Sun
+    given-names: Tao
+  - family-names: Wang
+    given-names: Shaoyi
+  - family-names: Schleicher
+    given-names: Simon
+  - family-names: Weber
+    given-names: Ramon E.
+repository-code: "https://github.com/LupoSun/GooGym2D"
+url: "https://luposun.github.io/GooGym2D/"
+abstract: >-
+  A headless Gymnasium environment for incremental 2D bridge construction,
+  with graph-state utilities and a lightweight axial truss FEM pipeline for
+  terminal structural evaluation. Extracted from the research codebase behind
+  the IASS 2026 and ACADIA 2026 papers on learning structural design intuition
+  from human demonstrations.
+keywords:
+  - reinforcement-learning
+  - imitation-learning
+  - gymnasium
+  - structural-design
+  - computational-design
+  - truss
+license: MIT
+version: 0.2.0
+preferred-citation:
+  type: conference-paper
+  title: >-
+    From Teaching to Teaming: Human-AI Co-Design Environment for
+    Architectural and Structural Design
+  authors:
+    - family-names: Sun
+      given-names: Tao
+    - family-names: Wang
+      given-names: Shaoyi
+    - family-names: Schleicher
+      given-names: Simon
+    - family-names: Weber
+      given-names: Ramon E.
+  collection-title: >-
+    Proceedings of the Association for Computer Aided Design in Architecture
+    (ACADIA)
+  year: 2026
+references:
+  - type: conference-paper
+    title: >-
+      Capturing Structural Intuition: Human-Gated Imitation Learning for
+      Structural Design with Flow Matching
+    authors:
+      - family-names: Sun
+        given-names: Tao
+      - family-names: Wang
+        given-names: Shaoyi
+      - family-names: Schleicher
+        given-names: Simon
+      - family-names: Weber
+        given-names: Ramon E.
+    collection-title: Proceedings of the IASS Annual Symposium
+    institution:
+      name: >-
+        International Association for Shell and Spatial Structures
+    year: 2026

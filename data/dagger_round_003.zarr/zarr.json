@@ -1,0 +1,9 @@
+{
+  "attributes": {
+    "schema_version": "native_anchor_v2_distance",
+    "action_spec": "[anchor_query_x, anchor_query_y, theta_anchor, distance]",
+    "observation_spec": "[chasm_width, x_anchor, y_anchor, x_other, y_other, mask] * MAX_BARS"
+  },
+  "zarr_format": 3,
+  "node_type": "group"
+}

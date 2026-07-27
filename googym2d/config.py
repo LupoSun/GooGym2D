@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import math
 
-MAX_BARS: int = 20
+MAX_BARS: int = 25
 
 MEMBER_LENGTH: float = 3.0
 MIN_MEMBER_LENGTH: float = 0.5 * MEMBER_LENGTH
@@ -12,7 +12,7 @@ MAX_MEMBER_LENGTH: float = 1.25 * MEMBER_LENGTH
 
 CLIFF_HEIGHT: float = 10.0
 CLIFF_WIDTH: float = 5.0
-ALLOWED_CHASM_WIDTHS: tuple[float, ...] = (10.0,)
+ALLOWED_CHASM_WIDTHS: tuple[float, ...] = (8.0, 10.0, 12.0)
 CONTINUOUS_CHASM_WIDTH_RANGE: tuple[float, float] = (
     float(min(ALLOWED_CHASM_WIDTHS)),
     float(max(ALLOWED_CHASM_WIDTHS)),

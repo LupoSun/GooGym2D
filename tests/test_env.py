@@ -7,6 +7,7 @@ import numpy as np
 
 import googym2d
 from googym2d import (
+    ALLOWED_CHASM_WIDTHS,
     BridgeBuildEnv,
     CONTINUOUS_CHASM_WIDTH_RANGE,
     ENV_ID,
@@ -128,14 +129,26 @@ def test_hindsight_round_trip_and_replay() -> None:
 def test_continuous_width_sampling_mode_supports_non_discrete_widths() -> None:
     env = BridgeBuildEnv(chasm_width_sampling_mode="continuous")
     low, high = CONTINUOUS_CHASM_WIDTH_RANGE
+    assert low < high, "continuous sampling needs a non-degenerate width range"
+
     sampled_widths: list[float] = []
     for seed in range(8):
         _obs, _info = env.reset(seed=seed)
         sampled_widths.append(float(env.chasm_width))
         assert low <= env.chasm_width <= high
 
-    if math.isclose(low, high, abs_tol=1e-9):
-        assert all(math.isclose(width, low, abs_tol=1e-6) for width in sampled_widths)
+    assert len(set(sampled_widths)) > 1, "continuous mode must not collapse to one width"
+    assert any(width not in ALLOWED_CHASM_WIDTHS for width in sampled_widths)
+
+
+def test_discrete_width_sampling_mode_covers_allowed_widths() -> None:
+    env = BridgeBuildEnv(chasm_width_sampling_mode="discrete")
+    sampled_widths = set()
+    for seed in range(32):
+        env.reset(seed=seed)
+        assert float(env.chasm_width) in ALLOWED_CHASM_WIDTHS
+        sampled_widths.add(float(env.chasm_width))
+    assert sampled_widths == set(ALLOWED_CHASM_WIDTHS)
 
 
 def test_fem_pipeline_and_finalize_success_and_disconnected() -> None:

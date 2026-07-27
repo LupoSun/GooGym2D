@@ -1,6 +1,8 @@
 # GooGym2D
 
-GooGym2D is a Gymnasium-based 2D bridge-construction environment extracted from the `experiments_vB` work behind the IASS/IWSS 2026 paper. This public repo intentionally contains only the core environment and structural-analysis logic needed for reinforcement learning and imitation learning research.
+GooGym2D is a Gymnasium-based 2D bridge-construction environment extracted from the research codebase behind two 2026 papers on learning structural design intuition from human demonstrations: **IASS 2026** (*Capturing Structural Intuition*) and **ACADIA 2026** (*From Teaching to Teaming*). This public repo intentionally contains only the core environment and structural-analysis logic needed for reinforcement learning and imitation learning research.
+
+Project website: <https://luposun.github.io/GooGym2D/>
 
 What is included:
 
@@ -9,6 +11,9 @@ What is included:
 - A lightweight axial truss FEM pipeline for terminal structural evaluation
 - Focused tests and a small, documented Python package
 
+The interactive GUIs, the browser-based classroom collector, the imitation-learning
+training stack, and the assistive co-design mode described in the papers are not
+part of this package.
 
 ## Install
 
@@ -48,6 +53,9 @@ env = BridgeBuildEnv(endpoint_mode="training_zones")
 obs, info = env.reset(seed=0)
 ```
 
+The environment is headless by design: passing a `render_mode` raises `ValueError`,
+and `render()` is a no-op.
+
 ## Environment Design
 
 Each action attempts to place one bar in anchor-first form:
@@ -60,7 +68,8 @@ Each action attempts to place one bar in anchor-first form:
 - `theta`: direction in radians
 - `length`: member length, clipped to the environment maximum
 
-Observation is a flat vector of shape `1 + 5 * MAX_BARS`:
+Observation is a flat vector of shape `1 + 5 * MAX_BARS`, which is **126** at the
+default `MAX_BARS = 25`:
 
 ```text
 [chasm_width,
@@ -69,6 +78,11 @@ Observation is a flat vector of shape `1 + 5 * MAX_BARS`:
 ```
 
 Unused bar slots are zero-padded.
+
+If you omit `options={"chasm_width": ...}` on `reset()`, the width is sampled.
+`chasm_width_sampling_mode="discrete"` (the default) draws uniformly from
+`ALLOWED_CHASM_WIDTHS = (8.0, 10.0, 12.0)`; `"continuous"` draws uniformly from
+the closed range those widths span.
 
 ## Episode Semantics
 
@@ -131,5 +145,60 @@ googym2d/
   fem.py
   env.py
 tests/
+data/          # demonstration and correction dataset
+docs/          # project website, served via GitHub Pages
 ```
 
+## Dataset
+
+`data/` bundles the human demonstrations and human-gated correction rounds used in the
+papers: 667 episodes / 8,459 steps across the 8 m, 10 m, and 12 m chasm widths, stored
+as Zarr v3. The observations are 126-D, matching this package's default `MAX_BARS = 25`.
+
+The stores hold numeric arrays only and carry no participant or session identifiers.
+See [data/README.md](data/README.md) for the schema, per-width breakdown, loading
+example, provenance, and contributor acknowledgments.
+
+## Versioning
+
+**0.2.0 is a breaking change.** It aligns `MAX_BARS` (20 -> 25) and
+`ALLOWED_CHASM_WIDTHS` (`(10.0,)` -> `(8.0, 10.0, 12.0)`) with the configuration
+used for the published experiments. The observation dimension therefore changed
+from 101 to 126, and models trained against 0.1.0 are not compatible.
+
+This package is not on PyPI, so install a specific version straight from the tag. The
+old single-width, 20-bar benchmark is tagged `v0.1.0`:
+
+```bash
+pip install "git+https://github.com/LupoSun/GooGym2D@v0.1.0"
+```
+
+## Citation
+
+If you use this environment, please cite the relevant paper:
+
+```bibtex
+@inproceedings{sun2026teaming,
+  title     = {From Teaching to Teaming: Human-AI Co-Design Environment
+               for Architectural and Structural Design},
+  author    = {Sun, Tao and Wang, Shaoyi and Schleicher, Simon
+               and Weber, Ramon E.},
+  booktitle = {Proceedings of the Association for Computer Aided Design
+               in Architecture (ACADIA)},
+  year      = {2026}
+}
+
+@inproceedings{sun2026capturing,
+  title     = {Capturing Structural Intuition: Human-Gated Imitation
+               Learning for Structural Design with Flow Matching},
+  author    = {Sun, Tao and Wang, Shaoyi and Schleicher, Simon
+               and Weber, Ramon E.},
+  booktitle = {Proceedings of the IASS Annual Symposium},
+  year      = {2026},
+  organization = {International Association for Shell and Spatial Structures}
+}
+```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
